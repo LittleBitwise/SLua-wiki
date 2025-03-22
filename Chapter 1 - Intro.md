@@ -24,4 +24,4 @@ The code within `touch_start` is only executed when the function is *called* som
 # Events and handlers
 Scripting in second life is *event-driven*, meaning that most scripts will react to *events* caused by their environment and may cause events themselves.
 
-The default script has a function called `touch_start`, which is actually an *event handler* for an event of the same name, which is triggered *(or called)* when someone begins touching the object containing the script. There are many built-in events in Second Life, see {this page} for the full list!
+The default script has a function called `touch_start`, which is actually an *event handler* for an event of the same name, which is triggered *(or called)* when someone begins touching the object containing the script. There are many built-in events in Second Life, see [this page](https://wiki.secondlife.com/wiki/Category:LSL_Events/ID) for the full list!
