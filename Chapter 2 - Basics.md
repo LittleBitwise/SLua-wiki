@@ -1,20 +1,20 @@
 # Types
 SLua has a handful of built-in types, many of them are inherited from Luau:
-- nil: `nil` (null value, represents 'nothing')
-- boolean: `true`, `false`
-- number: `1`, `3.14`
-- string: `"text!"`
-- vector: `vector(x, y, z)`
-- table: `{true, 3.14, "text!"}`
-- function: any *function*, [see documentation](https://luau.org/typecheck#function-types)
-- thread: any *coroutine*, [see documentation](https://luau.org/library#coroutine-library)
-- buffer: fixed-size mutable block of memory, [see documentation](https://luau.org/library#buffer-library)
-- userdata: arbitrary C/C++ data, not very useful for us scripters, [see documentation](https://www.lua.org/pil/28.1.html) and SLua-specific types below.
-
-SLua also implements some new types for Second Life's context.
-- integer: `1`, `42` (whole numbers only, to be used for with LSL API)
-- uuid: `uuid("12345678-1234-1234-1234-123456789ABC")`
-- rotation: `rotation(x, y, z, s)`, `quaternion(x, y, z, s)`
+| name | value | description | origin |
+| --- | --- | --- | --- |
+| nil | `nil` | Represents "nothing" or "unset" | Luau |
+| boolean | `true`, `false` | Result of logical expression | Luau |
+| number | `1`, `3.14` | 64-bit float | Luau |
+| integer | `1`, `42` | Whole numbers | SLua |
+| string | `"text!"` | Text, supports [interpolation](https://luau.org/syntax#string-interpolation) | Luau |
+| uuid | `uuid("12345678-1234-1234-1234-123456789ABC")` | see [LSL Key](https://wiki.secondlife.com/wiki/Category:LSL_Key) | SLua |
+| vector | `vector(x, y, z)` | see [documentation](https://luau.org/library#vector-library) and [LSL Vector](https://wiki.secondlife.com/wiki/Category:LSL_Vector) | Luau |
+| rotation | `rotation(x, y, z, s)` | see [LSL Rotation](https://wiki.secondlife.com/wiki/Rotation) | SLua |
+| function | any *function* | see [documentation](https://luau.org/typecheck#function-types) | Luau |
+| thread | any *coroutine* | see [documentation](https://luau.org/library#coroutine-library) | Luau |
+| buffer | `buffer.create(size: number)` | see [documentation](https://luau.org/library#buffer-library) | Luau |
+| userdata | arbitrary C/C++ data | see [documentation](https://www.lua.org/pil/28.html) | Luau |
+| table | `{true, pi=3.14, "text!"}` | Key-Value storage for mixed types, including itself | Luau |
 
 # Syntax
 You may refer to Luau documentation for more details: https://luau.org/syntax
