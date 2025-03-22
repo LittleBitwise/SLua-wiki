@@ -8,8 +8,8 @@ SLua has a handful of built-in types, many of them are inherited from Luau:
 | integer | `integer(1)`, `integer(3.14)` | Whole numbers, always floored | SLua |
 | string | `"text!"` | Text, supports [interpolation](https://luau.org/syntax#string-interpolation) | Luau |
 | uuid | `uuid("12345678-1234-1234-1234-123456789ABC")` | see [LSL Key](https://wiki.secondlife.com/wiki/Category:LSL_Key) | SLua |
-| vector | `vector(x, y, z)` | see [documentation](https://luau.org/library#vector-library) and [LSL Vector](https://wiki.secondlife.com/wiki/Category:LSL_Vector) | Luau |
 | rotation | `rotation(x, y, z, s)` | see [LSL Rotation](https://wiki.secondlife.com/wiki/Rotation) | SLua |
+| vector | `vector(x, y, z)` | see [documentation](https://luau.org/library#vector-library) and [LSL Vector](https://wiki.secondlife.com/wiki/Category:LSL_Vector) | Luau |
 | function | any *function* | see [documentation](https://luau.org/typecheck#function-types) | Luau |
 | thread | any *coroutine* | see [documentation](https://luau.org/library#coroutine-library) | Luau |
 | buffer | `buffer.create(size: number)` | see [documentation](https://luau.org/library#buffer-library) | Luau |
