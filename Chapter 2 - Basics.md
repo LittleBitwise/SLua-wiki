@@ -151,9 +151,60 @@ ll.OwnerSay("value is " .. valueOrDefault)
 -- prints "text" because value is truthy
 ```
 
-### for loop
-standard for loop stuff
 ### while loop
-standard while loop stuff
+Constructured like `while ... do ... end`, the loop first checks a condition, then executes all of the code in the `do` block before checking the condition again.
+
+```lua
+while ll.GetTime() < 5 do -- total script runtime is less than 5 seconds
+    ll.OwnerSay("iteration")
+    ll.Sleep(0.5)
+end
+```
 ### repeat-until loop
-reversed while loop stuff, AKA do-while
+Constructed like `repeat ... until ...`, the loop first executes all of the code in the `repeat` block. If the condition evaluates to `false`, the loop repeats.
+
+```lua
+repeat
+    ll.OwnerSay("iteration")
+    ll.Sleep(0.5)
+until ll.GetTime() >= 5 -- total script runtime is at least 5 seconds
+```
+
+### numeric for loop
+Constructed like `for ..., ..., ... do ... end`, this loop provides _initialization_, _condition_, and _step_ per iteration.
+
+```lua
+-- set countdown to 3
+-- after each iteration, compare countdown to 1
+-- if they aren't equal, modify countdown's value by -1
+for countdown = 3, 1, -1 do
+    ll.OwnerSay(tostring(countdown))
+    ll.Sleep(1)
+end
+
+ll.OwnerSay("Lift-off!")
+```
+
+Note that `countdown` is created as a new local variable, _shadowing_ any previous variables with the same name.
+
+All local variables created during the loop are deleted when the loop ends. Reading them after the loop gives `nil`.
+
+### generic for loop
+Constructed like `for ... in ... do ... end`, this loop iterates through values provided by an _iterator function_.
+
+```lua
+translation = {
+    monday = "maanantai",
+    tuesday = "tiistai",
+    wednesday = "keskiviikko",
+    thursday = "torstai",
+    friday = "perjantai",
+    saturday = "lauantai",
+    sunday = "sunnuntai"
+}
+
+for k, v in pairs(translation) do
+    ll.OwnerSay(`key: {k}, value: {v}`)
+end
+```
+In this example, the `pairs` function returns two values when called: a table entry's _key_ and corresponding _value_. (You may notice something odd when trying the above example. This will be covered later when talking about tables.)
