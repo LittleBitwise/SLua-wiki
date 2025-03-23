@@ -19,23 +19,12 @@ SLua has a handful of built-in types, many of them are inherited from Luau:
 # Syntax
 You may refer to Luau documentation for more details: https://luau.org/syntax
 
-## Statements
-A statement is a single logical action written by the programmer, such as _assigning a value_, or _calling a function_.
-```lua
-A = 2 -- assigning a value
-ll.OwnerSay("Hello, Avatar!") -- calling a function
-```
-
-If you have experience with other programming languages, such as LSL, you'll notice that there were no semicolons in the above example.
-
-Semicolons are **optional** in SLua, though their use might be needed in very specific cases like single-line if-statements. Generally speaking, it's best to avoid writing such code that needs semicolons because multiple statements on a single line are harder to read.
-
 ## Comments
 Comments in code aren't executed, their primary purpose is to clarify the meaning of our code. `--` begins a comment and continues until end of line:
 
 ```lua
-ll.OwnerSay("No comment") -- But this is a comment!
--- ll.OwnerSay("Nothing gets executed here")
+-- error("No code is executed here!")
+error("This causes the script to shout an error.") -- no lie
 ```
 
 It's also possible to write a comment that spans multiple lines (or only part of a line) by surrounding the contents with `--[[` and `]]`:
@@ -46,8 +35,19 @@ It's also possible to write a comment that spans multiple lines (or only part of
     you might expect in other languages.
 ]]
 
-ll.OwnerSay(--[[ Comment inside ]] "No comment")
+--[[The rest of the line is fine.]] error("This causes the script to shout an error.")
 ```
+
+## Statements
+A statement is a single logical action written by the programmer, such as _assigning a value_, or _calling a function_.
+```lua
+A = 2 -- assigning a value
+ll.OwnerSay("Hello, Avatar!") -- calling a function
+```
+
+If you have experience with other programming languages, such as LSL, you'll notice that there were no semicolons in the above example.
+
+Semicolons are **optional** in SLua, though their use might be needed in very specific cases like single-line if-statements. Generally speaking, it's best to avoid writing such code that needs semicolons because multiple statements on a single line are harder to read.
 
 ## Variables
 
@@ -61,13 +61,47 @@ text = tostring(C)  -- string value from function
 ll.OwnerSay(text)   -- prints "5" in your chat window
 ```
 
+## Functions
+A function is a reusable block of code that can accept inputs, perform tasks, and return results. Their primary purpose is to organize and structure our code.
+
+There are two styles of function definition:
+```lua
+-- Named function definition
+function SomeTask (OptionalParameter, AnotherParameter)
+    -- function body
+end
+```
+```lua
+-- Anonymous function definition
+SomeTask = function (OptionalParameter, AnotherParameter)
+    -- function body
+end
+```
+Both of the above examples achieve the same result: a new variable named `SomeTask` is created, with its value being a function.
+
+And when _calling_ a function, parentheses are used to pass any number of arguments to the function:
+```lua
+-- the first argument 42 will be assigned to the parameter named OptionalParameter
+-- the second argument "life" will be assigned to AnotherParameter
+SomeTask(42, "life")
+```
+
+The anonymous function definition can be useful when using functions that accept other functions as parameters:
+```lua
+string.gsub( -- function call
+    "hello, world",                         -- first argument, source string
+    "%a+",                                  -- second argument, string pattern to find
+    function (match) ll.OwnerSay(match) end -- function to call whenever match is found
+)
+```
+
 ### Global variables
 By default, all variables are global, meaning they can be accessed from anywhere in the script.
 
 ```lua
 touches = 0 -- global variable always stays in memory
 
-function touch_start(NumberOfTouches)
+function touch_start (NumberOfTouches)
     touches += 1  -- increments global variable by 1
     ll.OwnerSay(tostring(touches)) -- prints 1, then 2, then 3, ...
 end
@@ -79,7 +113,7 @@ We can limit the visibility _(or scope)_ of a variable with the `local` keyword.
 ```lua
 touches = 0
 
-function touch_start(NumberOfTouches)
+function touch_start (NumberOfTouches)
     local touches = 42 -- set local to 42
     ll.OwnerSay(tostring(touches)) -- always prints 42
 end
