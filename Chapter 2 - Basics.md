@@ -35,7 +35,7 @@ It's also possible to write a comment that spans multiple lines (or only part of
     you might expect in other languages.
 ]]
 
---[[The rest of the line is fine.]] error("This causes the script to shout an error.")
+--[[The rest of this line still executes.]] error("This causes the script to shout an error.")
 ```
 
 ## Statements
@@ -57,7 +57,7 @@ Any value can be stored in _variables_ to be reused later.
 A = 2               -- number
 B = 3               -- number
 C = A + B           -- number value from expression
-text = tostring(C)  -- string value from function
+text = tostring(C)  -- string value from expression (function call)
 ll.OwnerSay(text)   -- prints "5" in your chat window
 ```
 
@@ -72,7 +72,7 @@ function SomeTask (OptionalParameter, AnotherParameter)
 end
 ```
 ```lua
--- Anonymous function definition
+-- Anonymous function definition (i.e. no name was specified in the definition)
 SomeTask = function (OptionalParameter, AnotherParameter)
     -- function body
 end
@@ -86,13 +86,21 @@ And when _calling_ a function, parentheses are used to pass any number of argume
 SomeTask(42, "life")
 ```
 
-The anonymous function definition can be useful when using functions that accept other functions as parameters:
+The anonymous function definition can be useful when dealing with functions that accept other functions as parameters:
 ```lua
-string.gsub( -- function call
+string.gsub(                                -- function call
     "hello, world",                         -- first argument, source string
     "%a+",                                  -- second argument, string pattern to find
-    function (match) ll.OwnerSay(match) end -- function to call whenever match is found
+    function (match) ll.OwnerSay(match) end -- anonymous function to call whenever match is found
 )
+```
+Alternatively, with a named function:
+```lua
+function callback(match)
+    ll.OwnerSay(match)
+end
+
+string.gsub("hello, world", "%a+", callback)
 ```
 
 ### Global variables
@@ -130,7 +138,6 @@ for i = 1, 3 do -- new local variable `i` shadowing previous `i`
 end                          -- shadowing ends
 ll.OwnerSay(tostring(i))     -- prints 10 (the previous `i` value)
 ```
-
 
 ## Control flow
 
