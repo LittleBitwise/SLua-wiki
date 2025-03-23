@@ -10,7 +10,7 @@ Before anything else, find a sandbox or another area where building is allowed. 
 The default SLua script should look something like this:
 
 ```lua
-function touch_start(NumberOfTouches)
+function touch_start(total_number)
    ll.Say(0, "Touched.")
 end
 
