@@ -17,13 +17,13 @@ end
 ll.Say(0, "Hello, Avatar!")
 ```
 
-The first line of the above script declares a *function* called `touch_start` with one *parameter*. This function simply calls another function called [ll.Say](https://wiki.secondlife.com/wiki/LlSay) with two parameters: chat channel and message. The function definition ends with the *keyword* `end`.
+The first line of the above script declares a *function* named `touch_start` with one *parameter*. This function simply _calls_ another function named [ll.Say](https://wiki.secondlife.com/wiki/LlSay) with two parameters: chat channel and message. The function definition ends with the *keyword* `end`.
 
-The code within `touch_start` is only executed when that function is *called* somehow, which we'll cover next. On the other hand, the _function call_ on last line will be made immediately, because all code within the _global scope_ of a script is executed  as soon as the script starts.
+The code within `touch_start` is only executed when that function is _called_ somehow, which we'll cover next. On the other hand, the _function call_ on last line will be made immediately, because all code within the _global scope_ of a script is executed as soon as the script starts.
 
-So you will see "Hello, Avatar!" after saving the script, followed by "Touched." only after someone clicks the object.
+You should see "Hello, Avatar!" after saving the script, followed by "Touched." only after someone clicks the object.
 
 # Events and handlers
 Scripting in second life is *event-driven*, meaning that most scripts will react to *events* caused by their environment and may cause events themselves.
 
-The default script has a function called `touch_start`, which is actually an *event handler* for a built-in event of the same name, which is triggered *(or called)* when someone begins touching the object containing the script. There are many built-in events in Second Life, see [this page](https://wiki.secondlife.com/wiki/Category:LSL_Events/ID) for the full list!
+The default script's `touch_start` function is actually an *event handler* for a built-in event of the same name, which is triggered _(or called)_ when someone begins touching the object containing the script. There are many built-in events in Second Life, see [this page](https://wiki.secondlife.com/wiki/Category:LSL_Events/ID) for the full list!
