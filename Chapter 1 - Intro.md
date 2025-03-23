@@ -4,7 +4,7 @@ SLua is a scripting language being developed by Linden Lab for Second Life. It's
 It's important to know that SLua scripts can only be run in-world in Second Life, you cannot run scripts from an avatar's inventory or your local computer.
 
 # Getting started
-Before anything else, find a sandbox or another area where building is allowed. Once you've rezzed a new object, edit its contents and click the **New Script** button. This will add a premade script into the object's contents, which you can edit and observe right away.
+Check the [Try SLua](https://wiki.secondlife.com/wiki/Try_SLua) page.
 
 # Your first script
 The default SLua script should look something like this:
@@ -17,11 +17,13 @@ end
 ll.Say(0, "Hello, Avatar!")
 ```
 
-The first line of the above script declares a *function* called touch_start with one *parameter*. This function simply calls another function called `ll.Say`, which prints a message in public chat (channel 0). The function definition ends with the *keyword* `end`.
+The first line of the above script declares a *function* called `touch_start` with one *parameter*. This function simply calls another function called [ll.Say](https://wiki.secondlife.com/wiki/LlSay) with two parameters: chat channel and message. The function definition ends with the *keyword* `end`.
 
-The code within `touch_start` is only executed when the function is *called* somehow, which we'll cover next. On the other hand, the last line will be executed as soon as the script starts. So you will see "Hello, Avatar!" after saving the script, followed by "Touched." only after someone clicks the object.
+The code within `touch_start` is only executed when that function is *called* somehow, which we'll cover next. On the other hand, the _function call_ on last line will be made immediately, because all code within the _global scope_ of a script is executed  as soon as the script starts.
+
+So you will see "Hello, Avatar!" after saving the script, followed by "Touched." only after someone clicks the object.
 
 # Events and handlers
 Scripting in second life is *event-driven*, meaning that most scripts will react to *events* caused by their environment and may cause events themselves.
 
-The default script has a function called `touch_start`, which is actually an *event handler* for an event of the same name, which is triggered *(or called)* when someone begins touching the object containing the script. There are many built-in events in Second Life, see [this page](https://wiki.secondlife.com/wiki/Category:LSL_Events/ID) for the full list!
+The default script has a function called `touch_start`, which is actually an *event handler* for a built-in event of the same name, which is triggered *(or called)* when someone begins touching the object containing the script. There are many built-in events in Second Life, see [this page](https://wiki.secondlife.com/wiki/Category:LSL_Events/ID) for the full list!
