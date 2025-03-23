@@ -161,7 +161,9 @@ while ll.GetTime() < 5 do -- total script runtime is less than 5 seconds
 end
 ```
 ### repeat-until loop
-Constructed like `repeat ... until ...`, the loop first executes all of the code in the `repeat` block. If the condition evaluates to `false`, the loop repeats.
+Constructed like `repeat ... until ...`, the loop first executes all of the code in the `repeat` block. If the `until` condition evaluates to `false`, the loop repeats again.
+
+This type of loop is useful when you want to execute code **at least** once, even if the condition is fulfilled before the loop.
 
 ```lua
 repeat
