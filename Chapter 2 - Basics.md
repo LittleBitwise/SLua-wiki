@@ -12,7 +12,7 @@ SLua has a handful of built-in types, many of them are inherited from Luau:
 | vector | `vector(x, y, z)` | see [documentation](https://luau.org/library#vector-library) and [LSL Vector](https://wiki.secondlife.com/wiki/Category:LSL_Vector) | Luau |
 | function | any *function* | see [documentation](https://luau.org/typecheck#function-types) | Luau |
 | thread | any *coroutine* | see [documentation](https://luau.org/library#coroutine-library) | Luau |
-| buffer | `buffer.create(size: number)` | see [documentation](https://luau.org/library#buffer-library) | Luau |
+| buffer | `buffer.create(bytesize)` | see [documentation](https://luau.org/library#buffer-library) | Luau |
 | userdata | arbitrary C/C++ data | see [documentation](https://www.lua.org/pil/28.html) | Luau |
 | table | `{true, pi=3.14, "text!"}` | Key-Value storage for mixed types, including itself | Luau |
 
