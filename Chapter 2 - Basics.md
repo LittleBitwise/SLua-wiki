@@ -47,7 +47,7 @@ ll.OwnerSay("Hello, Avatar!") -- calling a function
 
 If you have experience with other programming languages, such as LSL, you'll notice that there were no semicolons in the above example.
 
-Semicolons are **optional** in SLua, though their use might be needed in very specific cases like single-line if-statements. Generally speaking, it's best to avoid writing such code that needs semicolons because multiple statements on a single line are harder to read.
+Semicolons are optional in SLua, although their use might be needed in very specific cases like single-line if-statements. Generally speaking, it's best to avoid writing such code that needs semicolons because multiple statements on a single line are harder to read.
 
 ## Variables
 
