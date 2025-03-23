@@ -96,7 +96,7 @@ string.gsub(                                -- function call
 ```
 Alternatively, with a named function:
 ```lua
-function callback(match)
+function callback (match)
     ll.OwnerSay(match)
 end
 
