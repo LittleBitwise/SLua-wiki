@@ -10,9 +10,9 @@ SLua has a handful of built-in types, many of them are inherited from Luau:
 | uuid | `uuid("12345678-1234-1234-1234-123456789ABC")` | see [LSL Key](https://wiki.secondlife.com/wiki/Category:LSL_Key) | SLua |
 | rotation | `rotation(x, y, z, s)` | see [LSL Rotation](https://wiki.secondlife.com/wiki/Rotation) | SLua |
 | vector | `vector(x, y, z)` | see [documentation](https://luau.org/library#vector-library) and [LSL Vector](https://wiki.secondlife.com/wiki/Category:LSL_Vector) | Luau |
-| function | any *function* | see [documentation](https://luau.org/typecheck#function-types) | Luau |
-| thread | any *coroutine* | see [documentation](https://luau.org/library#coroutine-library) | Luau |
-| buffer | `buffer.create(bytesize)` | see [documentation](https://luau.org/library#buffer-library) | Luau |
+| function | any _function_ | see [documentation](https://luau.org/typecheck#function-types) | Luau |
+| thread | any _coroutine_ | see [documentation](https://luau.org/library#coroutine-library) | Luau |
+| buffer | `buffer.create(size)` | see [documentation](https://luau.org/library#buffer-library) | Luau |
 | userdata | arbitrary C/C++ data | see [documentation](https://www.lua.org/pil/28.html) | Luau |
 | table | `{true, pi=3.14, "text!"}` | Key-Value storage for mixed types, including itself | Luau |
 
@@ -20,7 +20,7 @@ SLua has a handful of built-in types, many of them are inherited from Luau:
 You may refer to Luau documentation for more details: https://luau.org/syntax
 
 ## Statements
-A statement is a single logical action written by the programmer, such as *assigning a value*, or *calling a function*.
+A statement is a single logical action written by the programmer, such as _assigning a value_, or _calling a function_.
 ```lua
 A = 2 -- assigning a value
 ll.OwnerSay("Hello, Avatar!") -- calling a function
@@ -42,8 +42,8 @@ It's also possible to write a comment that spans multiple lines (or only part of
 
 ```lua
 --[[
-	This is a multiline comment which
-	you might expect in other languages.
+    This is a multiline comment which
+    you might expect in other languages.
 ]]
 
 ll.OwnerSay(--[[ Comment inside ]] "No comment")
@@ -51,7 +51,7 @@ ll.OwnerSay(--[[ Comment inside ]] "No comment")
 
 ## Variables
 
-Any value can be stored in *variables* to be reused later.
+Any value can be stored in _variables_ to be reused later.
 
 ```lua
 A = 2               -- number
@@ -74,7 +74,7 @@ end
 ```
 
 ### Local variables
-We can limit the visibility *(or scope)* of a variable with the `local` keyword.
+We can limit the visibility _(or scope)_ of a variable with the `local` keyword.
 
 ```lua
 touches = 0
@@ -85,7 +85,7 @@ function touch_start(NumberOfTouches)
 end
 ```
 
-Another term for the above is *shadowing*, because the most-local variable name will temporarily override ("put in shadow") the previous variable. Once the script's execution returns to a higher *scope*, the previous variable is usable again with its correct value.
+Another term for the above is _shadowing_, because the most-local variable name will temporarily override ("put in shadow") the previous variable. Once the script's execution returns to a higher _scope_, the previous variable is usable again with its correct value.
 
 Shadowing may be useful in certain situations where you want to prevent a previous variable from being modified until you're finished with another (inner) task. The following example is a demonstration of how shadowing affects a script, but it isn't a very practical example.
 
@@ -100,7 +100,7 @@ ll.OwnerSay(tostring(i))     -- prints 10 (the previous `i` value)
 
 ## Control flow
 
-### if-statement
+### if statement
 
 SLua uses an `if ... then ... elseif ... else ... end` structure.
 
@@ -111,13 +111,13 @@ value = nil
 
 -- minimal `if` statement
 if not value then
-	ll.OwnerSay("value is false or nil!")
+    ll.OwnerSay("value is false or nil!")
 end
 ```
 ```lua
 -- any amount of `elseif` allowed
 if value == nil then
-	ll.OwnerSay("value is nil!")
+    ll.OwnerSay("value is nil!")
 elseif value == false then
     ll.OwnerSay("value is false")
 elseif value == "" then
@@ -127,7 +127,7 @@ end
 ```lua
 -- only one `else` allowed
 if not value then
-	ll.OwnerSay("value is false or nil!")
+    ll.OwnerSay("value is false or nil!")
 elseif value == "" then
     ll.OwnerSay("value is empty string")
 else
@@ -135,8 +135,8 @@ else
 end
 ```
 
-### if-expression
-SLua also supports an `if ... then ... else` *expression* as well. Pay attention to the difference between *if-statement* and *if-expression:*
+### if expression
+SLua also supports an `if ... then ... else` _expression_ as well. Pay attention to the difference between *if-statement* and *if-expression:*
 
 The expression returns a value directly and doesn't use the keyword `end`. This kind of expression can be used assignments, function calls, and loops.
 
@@ -151,8 +151,15 @@ ll.OwnerSay("value is " .. valueOrDefault)
 -- prints "text" because value is truthy
 ```
 
+## Loops
+Loops are similar to the if-statement, except they can repeatedly execute the same code based on the condition. This is called _iteration_.
+
+All loops support the `break` keyword, which causes the loop to end immediately, without executing more code or checking the condition.
+
+All loops support the `continue` keyword, which causes the loop to move onto the next _iteration_ and handling the condition as usual.
+
 ### while loop
-Constructured like `while ... do ... end`, the loop first checks a condition, then executes all of the code in the `do` block before checking the condition again.
+Constructured like `while ... do ... end`, the loop first checks a condition, then executes all of the code in the `do` _block_ before checking the condition again.
 
 ```lua
 while ll.GetTime() < 5 do -- total script runtime is less than 5 seconds
