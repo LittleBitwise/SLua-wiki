@@ -16,7 +16,8 @@ SLua has a handful of built-in types, many of them are inherited from Luau:
 | userdata | arbitrary C/C++ data | see [documentation](https://www.lua.org/pil/28.html) | Luau |
 | table | `{ true, pi=3.14, "text!" }` | Key-Value storage for mixed types, including itself | Luau |
 
-# Math Operators
+# Operators
+## Math Operators
 | name |  operator | example | meta |
 | --- | --- | --- | --- |
 | addition | + | `1 + 1` → 2 | __add |
@@ -28,7 +29,7 @@ SLua has a handful of built-in types, many of them are inherited from Luau:
 | modulo | % | `4 % 2` → 0 | __mod |
 | unary negation | - | `-2` → 0 - 2 | __unm |
 
-# Relational Operators
+## Relational Operators
 | name | operator | example | meta |
 | --- | --- | --- | --- |
 | equal to | == | `3 == 5` → false | __eq |
@@ -38,6 +39,7 @@ SLua has a handful of built-in types, many of them are inherited from Luau:
 | greater than or equal to | >= | `3 >= 5` → false |
 | less than or equal to | <= | `3 <= 5` → true | __le |
 
+## Logical Operators
 | operator | description | example 
 | --- | --- | --- |
 | and | `true` only if both conditions are true | `true and true` → true |
