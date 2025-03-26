@@ -1,4 +1,4 @@
-If you know what you're doing, check the [Quickstart](https://github.com/LittleBitwise/SLua-wiki/blob/main/Chapter%200%20-%20Quickstart.md).
+If you know what you're doing, check the [Quickstart](https://github.com/LittleBitwise/SLua-wiki/blob/main/Chapter%200%20-%20Quickstart.md). Everybody else should begin from Chapter 1.
 
 ### Hello! ✨
 This is an attempt at writing a tutorial with a couple goals:
