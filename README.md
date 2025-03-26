@@ -1,3 +1,6 @@
+If you know what you're doing, check the [Quickstart](https://github.com/LittleBitwise/SLua-wiki/blob/main/Chapter%200%20-%20Quickstart.md).
+
+### Hello! ✨
 This is an attempt at writing a tutorial with a couple goals:
 1. Help existing LSL scripters on Second Life transition into SLua (Luau).
 2. Cover all of the common aspects of SLua that scripters could reasonably be expected to write in their own scripts.
