@@ -14,7 +14,35 @@ SLua has a handful of built-in types, many of them are inherited from Luau:
 | thread | any _coroutine_ | see [documentation](https://luau.org/library#coroutine-library) | Luau |
 | buffer | `buffer.create(size)` | see [documentation](https://luau.org/library#buffer-library) | Luau |
 | userdata | arbitrary C/C++ data | see [documentation](https://www.lua.org/pil/28.html) | Luau |
-| table | `{true, pi=3.14, "text!"}` | Key-Value storage for mixed types, including itself | Luau |
+| table | `{ true, pi=3.14, "text!" }` | Key-Value storage for mixed types, including itself | Luau |
+
+# Math Operators
+| name |  operator | example | meta |
+| --- | --- | --- | --- |
+| addition | + | `1 + 1` → 2 | __add |
+| subtraction | - | `1 - 1` → 0 | __sub |
+| division | / | `3 / 2` → 1.5 | __div |
+| floor division | // | `3 // 2` → 1 | __idiv |
+| multiplication | * | `4 * 2` → 8 | __mul |
+| exponentiation | ^ | `4 ^ 2` → 16 | __pow |
+| modulo | % | `4 % 2` → 0 | __mod |
+| unary negation | - | `-2` → 0 - 2 | __unm |
+
+# Relational Operators
+| name | operator | example | meta |
+| --- | --- | --- | --- |
+| equal to | == | `3 == 5` → false | __eq |
+| not equal to | ~= | `3 ~= 5` → true |
+| greater than | > | `3 > 5` → false |
+| less than | < | `3 < 5` → true | __lt |
+| greater than or equal to | >= | `3 >= 5` → false |
+| less than or equal to | <= | `3 <= 5` → true | __le |
+
+| operator | description | example 
+| --- | --- | --- |
+| and | `true` only if both conditions are true | `true and true` → true |
+| or | `true` if either condition is true | `true or false` → true |
+| not | the opposite of the condition | `not true` → false |
 
 # Syntax
 You may refer to Luau documentation for more details: https://luau.org/syntax
